@@ -67,7 +67,17 @@ ROBOTSTXT_OBEY = True
 ITEM_PIPELINES = {
     'rss.pipelines.RssPipeline': 300,
     'rss.pipelines.DuplicatesPipeline': 400,
+    #'scrapyelasticsearch.scrapyelasticsearch.ElasticSearchPipeline': 500
 }
+
+ELASTICSEARCH_SERVERS = ['localhost']
+ELASTICSEARCH_INDEX = 'rss'
+ELASTICSEARCH_INDEX_DATE_FORMAT = ''
+ELASTICSEARCH_TYPE = 'items'
+ELASTICSEARCH_UNIQ_KEY = 'id'  # Custom unique key
+
+# can also accept a list of fields if need 
+#ELASTICSEARCH_UNIQ_KEY = ['url', 'id']
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
